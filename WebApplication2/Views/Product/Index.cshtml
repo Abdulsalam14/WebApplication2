@@ -1,0 +1,37 @@
+﻿@model ProductViewModel
+
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body class="bg-light">
+    <section class="container d-flex align-items-center justify-content-between">
+        <h1 >Products</h1>
+        <a class="btn btn-primary" asp-controller="Product" asp-action="Add">Add New Product</a>
+    </section>
+    <section class="container">
+        <div class="row">
+            @foreach (var item in Model.Products)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img  src="@item.ImagePath" class="card-img-top" alt="img @item.Id" style=" width:100%;height:350px">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p class="card-text">@item.Description</p>
+                            <p class="card-text">@item.Discount%</p>
+                            <p class="card-text">$@item.Price</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-around">
+                            <a href="product/delete/@item.Id" class="btn btn-danger">Delete</a>
+                            <a href="product/update/@item.Id" class="btn btn-warning">Update</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+</body>
+</html>

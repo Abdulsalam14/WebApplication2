@@ -1,0 +1,68 @@
+﻿@model ProductUpdateViewModel
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body class="bg-light">
+    <section class="container">
+    <form asp-controller="Product" asp-action="Update" method="post" enctype="multipart/form-data">
+        <input asp-for="Product.Id" type="hidden" />
+        <input asp-for="Product.ImagePath" type="hidden" />
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Product.Name" class="form-label"></label>
+                    <input asp-for="Product.Name" class="form-control" />
+                    <span style="color:red;" asp-validation-for="Product.Name"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Product.Description" class="form-label"></label>
+                    <input asp-for="Product.Description" class="form-control" />
+                    <span style="color:red;" asp-validation-for="Product.Description"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Product.Discount" class="form-label"></label>
+                    <input asp-for="Product.Discount" class="form-control" />
+                    <span style="color:red;" asp-validation-for="Product.Discount"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Product.Price" class="form-label"></label>
+                    <input asp-for="Product.Price" class="form-control" />
+                    <span style="color:red;" asp-validation-for="Product.Price"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Product.ImagePath" class="form-label"></label>
+                    <input type="file" name="newImage" accept="image/*" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+
+</body>
+</html>
